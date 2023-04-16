@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  background-color: rgb(201, 226, 236);
+  justify-content: space-around;
+  color: black;
+  padding-top: 10px;
+  float: left;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  width: 7rem;
+  margin-right: 5px;
+  position: absolute;
+  margin-top: 45px;
+  margin-left: -180px;
+}
+
+@media only screen and (max-width: 1365px) {
+  .logo {
+    width: 0rem;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  footer{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  footer{
+    font-size: smaller;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="container-cards">
+  <div class="container-pagination" *ngIf="pag != 'home'">
+    <div style="font-size: 15px; text-align: center;">
+      <strong>{{viaggiPerPagina}}</strong> Viaggi su un totale di <strong>{{viaggiTotali}}</strong> viaggi, pagina corrente: <strong>{{page}}</strong>
+    </div>
+    <p-paginator (onPageChange)="paginate($event)" [rows]="viaggiPerPagina" [totalRecords]="viaggiTotali" (rowPerPageOptionsChange)="viaggiPerPagina"></p-paginator>
+  </div>
+  <div class="card-container" *ngFor="let travel of travels | slice: (page * viaggiPerPagina) - viaggiPerPagina : page * viaggiPerPagina">
+    <div class="card">
+      <div class="card-image" [ngStyle]="{'background-image': 'url(' + travel.immagine + ')'}"></div>
+      <div class="card-body">
+        <h5 class="card-title" style="color: #198754">{{travel.titolo}}</h5>
+        <p class="card-text">{{travel.intestazione}}</p>
+        <p class="card-text">Partenza: {{travel.partenza | date}}</p>
+        <p class="card-text">Ritorno: {{travel.ritorno | date}}</p>
+        <a class="btn btn-primary" routerLink="/viaggi/dettaglio/{{travel.titolo}}/{{travel._id}}">Dettaglio</a>
+        <a class="btn btn-primary delete" *ngIf="ruolo === 'admin'"><mat-icon>delete_forever</mat-icon></a>
+      </div>
+    </div>
+  </div>
+</div>

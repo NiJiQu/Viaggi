@@ -1,0 +1,16 @@
+<div class="image" [ngStyle]="{'background-image': 'url(' + viaggio.immagine + ')'}"></div>
+<div>
+  <h1 class="title">{{viaggio.titolo}}</h1>
+  <p [innerHTML]="viaggio.descrizione" class="text"></p>
+
+  <div class="greca">
+  </div>
+
+  <div class="info">
+    <p><b>Partenza:</b><span style="font-size: smaller;"> {{viaggio.partenza | date}}</span></p>
+    <p><b>Ritorno:</b><span style="font-size: smaller;"> {{viaggio.ritorno | date}}</span></p>
+    <p><b>Prezzo:</b><span style="font-size: smaller;"> {{viaggio.prezzo}}</span></p>
+    <p><b>Posti:</b><span style="font-size: smaller;"> {{viaggio.posti}}</span></p>
+    <button type="button" class="btn btn-success" *ngIf="authService.isLogged() && this.user.role == 'user'">Prenota</button>
+  </div>
+</div>

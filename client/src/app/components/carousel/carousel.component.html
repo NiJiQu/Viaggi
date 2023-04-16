@@ -1,0 +1,12 @@
+<ngb-carousel *ngIf="videos" [interval]="8000">
+	<ng-template ngbSlide *ngFor="let video of videos">
+		<div class="picsum-img-wrapper">
+      <video autoplay muted loop  poster="">
+        <source [src]="percorso + video.id + '.mp4'" type="video/mp4">
+      </video>
+		</div>
+		<div class="carousel-caption">
+			<h1>{{video.label}}</h1>
+		</div>
+	</ng-template>
+</ngb-carousel>

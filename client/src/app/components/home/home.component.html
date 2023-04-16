@@ -1,0 +1,41 @@
+<app-carousel></app-carousel>
+
+<div class="aforisma" style="margin-top: 50px; padding: 20px">
+  <p class="fable" style="font-size: 20px;"><b>
+    “Un viaggio non inizia nel momento in cui partiamo né finisce nel momento in cui raggiungiamo la meta. <br>
+    In realtà comincia molto prima e non finisce mai, <br>
+    dato che il nastro dei ricordi continua a scorrerci dentro anche dopo che ci siamo fermati. <br>
+    È il virus del viaggio, <br>
+    malattia sostanzialmente incurabile.”
+  </b>
+  </p>
+  <small><b>Ryszard Kapuscinski</b></small>
+</div>
+
+<div class="centrale">
+  <h2 class="fable">Le nostre prossime fantastiche mete!</h2>
+  <app-travel-card [pag]="'home'"></app-travel-card>
+</div>
+
+<ng-template [ngIf]="nome">
+  <div id="container-utente">
+    <div id="dati-utente">
+      <h2>Grazie <strong>{{nome}}</strong> per esserti registrato, ecco i tuoi dati:</h2>
+      <ul>
+        <li>
+          <strong>Nome:</strong> {{nome}}
+        </li>
+        <li>
+          <strong>Cognome:</strong> {{cognome}}
+        </li>
+        <li>
+          <strong>Email:</strong> {{email}}
+        </li>
+        <li>
+          <strong>Età:</strong> {{eta}}
+        </li>
+      </ul>
+      <button class="btn btn-primary btn-lg" (click)="closeModal()">Chiudi</button>
+    </div>
+  </div>
+</ng-template>

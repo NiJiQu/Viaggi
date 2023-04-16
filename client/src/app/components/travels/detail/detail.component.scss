@@ -1,0 +1,31 @@
+.image {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 30%;
+  border-bottom-left-radius: 30%;
+  transform: scale(1.0145);
+}
+
+.title {
+  padding-top: 50px;
+  font-family: 'Satisfy', cursive;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.greca {
+  height: 150px;
+  background-image: url('https://media1.thehungryjpeg.com/thumbs2/ori_4048974_b02mpf1o3tsd8lud8ip8hl0gqsmudqbvpxvozouz_heart-airplane-dotted-path-travel-heart-line-route-point-aircraft-pa.jpg');
+  background-size: contain;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}

@@ -1,0 +1,66 @@
+.background {
+  background-image: url('https://www.fenapigroup.it/wp-content/uploads/2020/03/VIAGGIO-EUROPA6-1030x615.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.titolo {
+  font-family: 'Satisfy', cursive;
+  margin-left: 170px;
+  font-size: 30px;
+  color: #198754;
+}
+
+p.help.is-danger{
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-control {
+  display: block;
+  width: 95%!important;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.fine-form {
+  width: 98%!important;
+}
+
+.bottone {
+  margin-left: 170px;
+  margin-top: 20px;
+}
+
+.modal-header {
+  background-color: rgb(201, 226, 236);
+  height: 70px;
+
+  h3{
+    margin: 0!important;
+    font-weight: bold;
+  }
+}
+
+.modal-footer {
+  background-color: rgb(201, 226, 236);
+}
+
+
+@media only screen and (max-width: 768px) {
+  .bottone {
+    margin-left: 0;
+  }
+}

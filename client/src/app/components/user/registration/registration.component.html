@@ -1,0 +1,130 @@
+<section class="h-100 h-custom background">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+
+            <div class="card-body p-4 p-md-5" style="margin-right: -30px;">
+              <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 titolo">Compila il form d'iscrizione</h2>
+
+              <form class="px-md-2" [formGroup]="form" (ngSubmit)="OnSubmit()">
+                <div class="d-flex">
+                  <div class="form-outline mb-4" style="width: 50%">
+                      <label class="form-label" for="form3Example1q">Nome</label>
+                    <input type="text" id="form3Example1q" class="form-control" style="width: 86%" placeholder="Inserisci il tuo nome" name="nome" formControlName="nome"/>
+                    <p class="help is-danger" *ngIf="form.get('nome').touched && form.controls.nome.hasError('required')">Il campo è Obbligatorio</p>
+                  </div>
+
+                  <div class="form-outline mb-4" style="width: 50%">
+                    <label class="form-label" for="form3Example1q">Cognome</label>
+                    <input type="text" id="form3Example1q" class="form-control" style="width: 86%" placeholder="Inserisci il tuo cognome" name="cognome" formControlName="cognome"/>
+                    <p class="help is-danger" *ngIf="form.get('cognome').touched && form.controls.cognome.hasError('required')">Il campo è Obbligatorio</p>
+                  </div>
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1q">Email</label>
+                  <input type="text" id="form3Example1q" class="form-control" style="width: 93%" placeholder="Inserisci la tua email" name="email" formControlName="email"/>
+                  <p class="help is-danger" *ngIf="form.get('email').touched && form.controls.email.hasError('required')">Il campo è Obbligatorio</p>
+                  <p class="help is-danger" *ngIf="form.get('nome').touched && form.controls.nome.hasError('email')">Il campo non contiene una email valida</p>
+                </div>
+
+                <div class="d-flex">
+
+                  <div class="form-outline mb-4 d-flex" style="flex-direction: column; width: 50%;">
+                    <label class="form-label" for="form3Example1q">Password</label>
+                    <!-- <input type="text" id="form3Example1q" class="form-control" placeholder="Inserisci la password"/> -->
+
+                    <p-password [toggleMask]="true" name="password" formControlName="password" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" class="registrazione">
+                      <ng-template pTemplate="footer">
+                          <p-divider></p-divider>
+                          <p class="mt-2">Suggerimenti</p>
+                          <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                              <li>Almeno una lettera minuscola</li>
+                              <li>Almeno una lettera maiuscola</li>
+                              <li>Almeno un numero</li>
+                              <li>Da 8 a 16 caratteri</li>
+                          </ul>
+                      </ng-template>
+                    </p-password>
+
+                    <p class="help is-danger" *ngIf="form.get('password').touched && form.controls.password.hasError('required')">Il campo è Obbligatorio</p>
+                  </div>
+
+                  <div class="form-outline mb-4" style="width: 43%">
+                    <label class="form-label" for="form3Example1q">Ripeti Password</label>
+                    <p-password [toggleMask]="true" name="ripetiPassword" formControlName="ripetiPassword" [feedback]="false" class="registrazione"></p-password>
+                    <p class="help is-danger" *ngIf="form.get('ripetiPassword').touched && form.controls.ripetiPassword.hasError('required')">Il campo è Obbligatorio</p>
+                    <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">Attenzione la password non è uguale</p>
+                  </div>
+
+                </div>
+
+                <div class="d-flex">
+
+                  <div class="col-md-6 mb-4">
+
+                    <div>
+                      <label for="exampleDatepicker1" class="form-label">Che tipologia di viaggio preferisci?</label>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label param" for="flexCheckDefault">
+                          Avventura
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label param" for="flexCheckChecked">
+                          Cultura
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label param" for="flexCheckChecked">
+                          Relax
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                    <div>
+                      <div class="form-outline datepicker" style="width: 25%">
+                          <label for="exampleDatepicker1" class="form-label">Età</label>
+                          <input type="text" class="form-control" id="exampleDatepicker1" placeholder="18" name="eta" formControlName="eta"/>
+                          <p class="help is-danger" *ngIf="form.get('eta').touched && form.controls.eta.hasError('required')">Il campo è Obbligatorio</p>
+                      </div>
+
+                      <div class="d-flex" style="margin-top: 10px;">
+                        <input class="form-check-input me-2" type="checkbox" name="accetto" formControlName="accetto"/>
+                        <label class="form-check-label" for="">
+                          Accetto i <b><a (click)="open(modaleServizi)">Termini di servizio</a></b>
+                        </label>
+                        <p class="help is-danger" *ngIf="form.get('accetto').touched && form.controls.accetto.hasError('required')">Il campo è Obbligatorio</p>
+                      </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg mb-1 bottone" [disabled]="!form.valid">Registrati</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<ng-template #modaleServizi let-modal>
+  <div class="modal-header">
+    <h3>Termini di servizio</h3>
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="modal.close()" ngbAutoFocus>Ho letto</button>
+  </div>
+</ng-template>
